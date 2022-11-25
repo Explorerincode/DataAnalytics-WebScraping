@@ -1,9 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
 from csv import writer
+
 url = "https://www.pararius.com/apartments/delft/page-"
 
-for pages in url:
+for pages in range(1,5):
     page =requests.get(url+str(pages))
     soup=BeautifulSoup(page.content,'html.parser')
     lists= soup.find_all('section', class_="listing-search-item")
